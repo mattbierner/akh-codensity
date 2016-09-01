@@ -1,0 +1,33 @@
+{
+    "name": "akh.codensity",
+    "version": "0.0.0",
+    "description": "Akh codensity monad",
+    "author": "Matt Bierner",
+    "license": "MIT",
+    "keywords": [
+        "monad transformer",
+        "monad",
+        "akh",
+        "codensity"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mattbierner/akh-codensity.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mattbierner/akh-codensity/issues"
+    },
+    "main": "index.js",
+    "dependencies": {
+        "akh.core.spec": "0.x",
+        "akh.core.trampoline": "^0.0.0",
+        "akh.identity": "0.x"
+    },
+    "devDependencies": {
+        "chai": "*",
+        "mocha": "*"
+    },
+    "scripts": {
+        "test": "mocha ./tests"
+    }
+}
