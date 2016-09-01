@@ -63,44 +63,6 @@ describe("Codensity", () => {
             10001 * 10001)
     })
 
-    it("simple callcc", () => {
-        const c = Codensity.of(3)
-            .callcc(function (k) {
-                return k(4)
-            })
-
-        assert.deepEqual(
-            Codensity.run(c, sqr),
-            16)
-    })
-
-    it("callcc breaks", () => {
-        const c = Codensity.of(3)
-            .callcc(function (k) {
-                return k(4)
-                    .chain(function () { return Codensity.of(1) })
-            })
-
-        assert.deepEqual(
-            Codensity.run(c, sqr),
-            16)
-    })
-
-    it("callcc chain", () => {
-        const c = Codensity.of(3)
-            .callcc(function (k) {
-                return k(5)
-            })
-            .chain(function (x) {
-                return Codensity.of(x + 1)
-            })
-
-        assert.deepEqual(
-            Codensity.run(c, sqr),
-            36)
-    })
-
-
     it("fmap", () => {
         const c = Codensity.of(3)
             .map(function (x) {

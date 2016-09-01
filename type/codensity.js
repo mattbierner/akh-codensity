@@ -14,6 +14,10 @@ const Codensity = CodensityT(Identity);
  * @param k Outer continuation.
  */
 Codensity.run = (m, k) =>
-    Identity.runIdentity(CodensityT.run(m, x => Identity.of(k(x))))
+    Identity.run(CodensityT.run(m, x => Identity.of(k(x))))
+
+Codensity.prototype.run = function(k) {
+    return Codensity.run(this, k)
+}
 
 module.exports = Codensity;

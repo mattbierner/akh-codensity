@@ -4,7 +4,6 @@
 "use strict"
 const tramp = require('akh.core.trampoline')
 const spec = require('akh.core.spec')
-const ContMonad = require('../spec/cont')
 
 /* Transformer
  ******************************************************************************/
@@ -43,12 +42,6 @@ const CodensityT = m => {
             new Instance(k =>
                 t.chain(x => tramp.trampoline(k(x)))))
 
-    const reify = k => x => new Instance(_ => k(x))
-
-    ContMonad(Instance,
-        f =>
-            new Instance(k =>
-                runCodensityT(f(reify(k)), k)))
 
     Instance.prototype.run = function(k) {
         return CodensityT.run(this, k);
