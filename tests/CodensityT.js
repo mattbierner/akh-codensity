@@ -1,10 +1,10 @@
 "use strict"
 const assert = require('chai').assert
 const CodensityT = require('../index').CodensityT
-const State = require('../index').state
+const State = require('akh.state').State
 
 const run = function (c, s, k) {
-    return State.evalState(
+    return State.eval(
         CodensityT.run(
             c,
             function (x) { return State.of(k(x)) }),
@@ -17,7 +17,7 @@ const sqr = function (x) { return x * x }
 
 const M = CodensityT(State)
 
-/*
+
 describe('CodensityT', () => {
     it("simple_of", () => {
         const c = M.of(3)
@@ -26,7 +26,6 @@ describe('CodensityT', () => {
             run(c, 's', sqr),
             9)
     })
-
 
     it("lift", () => {
         const c = M.of(3)
@@ -43,4 +42,3 @@ describe('CodensityT', () => {
     })
 
 })
-*/

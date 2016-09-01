@@ -42,7 +42,6 @@ const CodensityT = m => {
             new Instance(k =>
                 t.chain(x => tramp.trampoline(k(x)))))
 
-
     Instance.prototype.run = function(k) {
         return CodensityT.run(this, k);
     }
