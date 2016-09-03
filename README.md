@@ -18,11 +18,11 @@ The codensity monad/transformer implements the [Fantasy Land][fl] monad and mono
 </a>
 
 ```js
-// Continuation monad
+// Codensity monad
 require('akh.codensity').Codensity
 require('akh').Codensity
 
-// Continuation monad transformer
+// Codensity monad transformer
 require('akh.codensity').CodensityT
 require('akh').CodensityT
 ```
