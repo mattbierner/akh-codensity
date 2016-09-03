@@ -22,9 +22,7 @@ describe('CodensityT', () => {
     it("simple_of", () => {
         const c = M.of(3)
 
-        assert.deepEqual(
-            run(c, 's', sqr),
-            9)
+        assert.strictEqual(9, run(c, 's', sqr))
     })
 
     it("lift", () => {
@@ -36,9 +34,6 @@ describe('CodensityT', () => {
                 return M.lift(State.get)
             })
 
-        assert.deepEqual(
-            run(c, 1, id),
-            7)
+        assert.strictEqual(7, run(c, 1, id))
     })
-
 })

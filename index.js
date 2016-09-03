@@ -1,12 +1,11 @@
 "use strict"
-
-const codensityT = require('./trans/codensity');
-const codensity = require('./type/codensity');
+const CodensityT = require('./trans/codensity');
+const Codensity = require('./type/codensity');
 
 module.exports = {
-    CodensityT: codensityT,
-    Codensity: codensity,
+    CodensityT: CodensityT,
+    Codensity: Codensity,
 
-    trans: { codensity: codensityT },
-    type: { codensity: codensity }
+    trans: { codensity: CodensityT },
+    type: { codensity: Codensity }
 };

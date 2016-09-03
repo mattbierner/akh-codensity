@@ -5,8 +5,7 @@
 const tramp = require('akh.core.trampoline')
 const spec = require('akh.core.spec')
 
-/* Transformer
- ******************************************************************************/
+
 var runCodensityT = (m, k) =>
     tramp.tail(m._run, k)
 
@@ -52,11 +51,11 @@ const CodensityT = m => {
 /**
  * Perform a continuation computation and complete with `k`.
  * 
- * @param m ContT computation.
+ * @param m Codensity computation.
  * @param k Outer continuation.
  */
 CodensityT.run = (m, k) =>
     tramp.trampoline(runCodensityT(m, k))
 
-module.exports = CodensityT
 
+module.exports = CodensityT

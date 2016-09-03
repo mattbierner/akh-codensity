@@ -2,15 +2,14 @@
 const assert = require('chai').assert
 const Codensity = require('../index').Codensity
 
-const sqr = function (x) { return x * x }
+const sqr = x => x * x
 
 describe("Codensity", () => {
     it("simple of", () => {
         const c = Codensity.of(3)
 
-        assert.deepEqual(
-            Codensity.run(c, sqr),
-            9)
+        assert.deepEqual(9, Codensity.run(c, sqr))
+        assert.deepEqual(9, c.run(sqr))
     })
 
     it("simple chain", () => {

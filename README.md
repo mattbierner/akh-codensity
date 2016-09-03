@@ -1,40 +1,60 @@
-Codensity for the [Akh](https://github.com/mattbierner/akh) Javascript Monad Transformer Library
+# Codensity for the [Akh  Javascript Monad Transformer Library](https://github.com/mattbierner/akh)
 
-## API
+Includes both regular [codensity][] monad `Codensity` and codensity monad transformer `CodensityT`.
+
+```bash
+# To use as standalone package
+$ npm install --save akh.codensity
+
+# To use as part of akh library
+$ npm install --save akh
+```
+
+## Usage
+The codensity monad/transformer implements the [Fantasy Land][fl] monad and monoid interfaces. 
+
+<a href="https://github.com/fantasyland/fantasy-land">
+    <img src="https://raw.github.com/fantasyland/fantasy-land/master/logo.png" align="right" width="82px" height="82px" alt="Fantasy Land logo" />
+</a>
 
 ```js
 // Continuation monad
-require('akh.Codensity').Codensity
+require('akh.codensity').Codensity
 require('akh').Codensity
-require('akh').type.codensity
 
 // Continuation monad transformer
-require('akh.Codensity').CodensityT
+require('akh.codensity').CodensityT
 require('akh').CodensityT
-require('akh').trans.codensity
 ```
 
-
-#### `Codensity.run(m, k)` 
-Perform a continuation computation `m` and complete with outer continuation `k`.
+#### `Codensity.run(m, k)`, `m.run(k)`
+Perform a codensity computation `m` and complete with outer continuation `k`.
 
 ```js
 const Codensity = requre('akh.Codensity').Codensity
 
-var c = Codensity.of(3)
-        .callcc(k =>
-            k(4).map(x => x + 1))
-        .map((x) => -x);
+var c = Codensity.of(3).map(x => -x)
 
-Codensity.run(c, console.log); // logs: -4
+Codensity.run(c, console.log) // logs: -3
 c.run(console.log)
 ```
 
-----
-
-### `require('akh.codensity').CodensityT`
-The codensity transformer, layers codensity over a monad. 
-
-#### `CodensityT.run(m, k)`
+#### `CodensityT.run(m, k)`, `m.run(k)`
 Same as `Codensity.run` but for transformed types
 
+
+## Contributing
+Contributions are welcome.
+
+To get started:
+
+```bash
+$ cd akh-codensity
+$ npm install # install dev packages
+$ npm test # run tests
+```
+
+
+
+[codensity]: http://www.maths.ed.ac.uk/~tl/sydney/sydney_talk.pdf
+[fl]: https://github.com/fantasyland/fantasy-land

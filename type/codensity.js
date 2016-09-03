@@ -3,7 +3,7 @@ const Identity = require('akh.identity').type.identity;
 const CodensityT = require('../trans/codensity');
 
 /**
- * Codensity monad
+ * Codensity monad.
  */
 const Codensity = CodensityT(Identity);
 
