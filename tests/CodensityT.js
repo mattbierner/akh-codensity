@@ -2,6 +2,7 @@
 const assert = require('chai').assert
 const CodensityT = require('../index').CodensityT
 const State = require('akh.state').State
+const List = require('akh.list').List
 
 const run = function (c, s, k) {
     return State.eval(
@@ -35,5 +36,21 @@ describe('CodensityT', () => {
             })
 
         assert.strictEqual(7, run(c, 1, id))
+    })
+
+    it("concat", () => {
+        // See https://github.com/mattbierner/akh-codensity/issues/1
+
+        const M = CodensityT(List)
+        const run = (c, k) =>
+            List.run(
+                CodensityT.run(
+                    c,
+                    x => List.of(k(x))))
+
+        assert.deepEqual(
+            [1, 4],
+            run(M.of(1).concat(M.of(2)), sqr)
+        )
     })
 })

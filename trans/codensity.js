@@ -32,8 +32,8 @@ const CodensityT = m => {
 
         function (b) {
             return new Instance(k =>
-                Codensity.runCodensity(this, k)
-                    .concat(Codensity.runCodensity(b, k)))
+                CodensityT.run(this, k)
+                    .concat(CodensityT.run(b, k)))
         })
 
     spec.Transformer(Instance, m,
